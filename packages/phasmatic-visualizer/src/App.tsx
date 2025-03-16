@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FlowVisualizer } from '../lib';
-import { generateSampleFlow } from './sampleData';
+import { FlowVisualizer } from './lib';
+import { generateSampleFlow } from './lib/sampleData';
 
 const App: React.FC = () => {
   const [flowData, setFlowData] = useState(generateSampleFlow());

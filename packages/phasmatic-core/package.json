@@ -5,24 +5,26 @@
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts",
     "files": [
-      "dist"
+        "dist"
     ],
-"scripts": {
-  "build": "rollup -c",
+    "scripts": {
+  "build": "rollup -c rollup.config.cjs",
   "clean": "rimraf dist",
-  "dev": "rollup -c -w"
+  "dev": "rollup -c rollup.config.cjs -w"
 },
     "dependencies": {
-      "reflect-metadata": "^0.1.13"
+        "reflect-metadata": "^0.1.13"
     },
     "peerDependencies": {
-      "mobx": "^6.0.0"
+        "mobx": "^6.0.0"
     },
     "devDependencies": {
-      "rollup": "^3.20.0",
-      "rollup-plugin-typescript2": "^0.34.1",
-      "jest": "^29.5.0",
-      "ts-jest": "^29.1.0",
-      "rimraf": "^4.4.0"
+        "@rollup/plugin-commonjs": "^28.0.3",
+        "@rollup/plugin-node-resolve": "^16.0.1",
+        "jest": "^29.5.0",
+        "rimraf": "^4.4.0",
+        "rollup": "^3.29.5",
+        "rollup-plugin-typescript2": "^0.34.1",
+        "ts-jest": "^29.1.0"
     }
-  }
+}

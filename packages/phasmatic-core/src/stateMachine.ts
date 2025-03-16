@@ -1,4 +1,4 @@
-import { makeObservable, observable, action } from 'mobx';
+import { makeObservable, observable, action, makeAutoObservable } from 'mobx';
 import { 
   PHASE_REGISTRY, 
   PhaseContext, 
@@ -48,35 +48,29 @@ export abstract class StateMachine<TPhase extends string, TContext = any> {
   private phaseRegistry: Map<string, PhaseMetadata<TContext>>;
   
   /**
-   * Creates a new state machine
-   * @param context The context object to pass to phase handlers
-   * @param initialPhase The phase to start with
-   * @param debug Whether to output debug information
-   * @param errorHandler Optional error handler
-   */
-  constructor(
-    context: TContext,
-    initialPhase: TPhase,
-    debug: boolean = false,
-    errorHandler?: (error: Error) => void
-  ) {
-    this.context = context;
-    this.initialPhase = initialPhase;
-    this.debug = debug;
-    this.errorHandler = errorHandler;
-    
-    // Get the phase registry from the constructor
-    this.phaseRegistry = (this.constructor as any)[PHASE_REGISTRY] || new Map();
-    
-    // Make the current phase observable if MobX is available
-    if (typeof makeObservable === 'function') {
-      makeObservable(this, {
-        currentPhase: observable,
-        isRunning: observable,
-        setPhase: action
-      });
-    }
-  }
+ * Creates a new state machine
+ * @param context The context object to pass to phase handlers
+ * @param initialPhase The phase to start with
+ * @param debug Whether to output debug information
+ * @param errorHandler Optional error handler
+ */
+constructor(
+  context: TContext,
+  initialPhase: TPhase,
+  debug: boolean = false,
+  errorHandler?: (error: Error) => void
+) {
+  this.context = context;
+  this.initialPhase = initialPhase;
+  this.debug = debug;
+  this.errorHandler = errorHandler;
+  
+  // Get the phase registry from the constructor
+  this.phaseRegistry = (this.constructor as any)[PHASE_REGISTRY] || new Map();
+  
+  // Make observable properties
+  makeAutoObservable(this);
+}
   
   /**
    * Starts the state machine
@@ -116,13 +110,13 @@ export abstract class StateMachine<TPhase extends string, TContext = any> {
     }
   }
   
-  /**
-   * Sets the current phase without executing its handler
-   * @param phase The phase to set
-   */
-  protected setPhase(phase: TPhase | null): void {
-    this.currentPhase = phase;
-  }
+/**
+ * Sets the current phase without executing its handler
+ * @param phase The phase to set
+ */
+protected setPhase(phase: TPhase | null): void {
+  this.currentPhase = phase;
+}
   
   /**
    * Transitions to a new phase and executes its handler

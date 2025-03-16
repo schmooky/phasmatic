@@ -24,7 +24,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "phasmatic": "^1.0.0",
+  "phasmatic-core": "*",
     "reactflow": "^11.10.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
