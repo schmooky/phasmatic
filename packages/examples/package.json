@@ -1,0 +1,21 @@
+{
+    "name": "phasmatic-examples",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "build": "tsc",
+      "start:cli": "node dist/cli-slot-machine/index.js",
+      "dev:cli": "ts-node src/cli-slot-machine/index.ts",
+      "clean": "rimraf dist"
+    },
+    "dependencies": {
+      "phasmatic": "^1.0.0",
+      "phasmatic-visualizer": "^1.0.0",
+      "chalk": "^4.1.2",
+      "mobx": "^6.10.0"
+    },
+    "devDependencies": {
+      "@types/node": "^18.15.11",
+      "ts-node": "^10.9.1"
+    }
+  }

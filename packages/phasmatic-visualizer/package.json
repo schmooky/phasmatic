@@ -1,0 +1,28 @@
+{
+    "name": "phasmatic-visualizer",
+    "version": "1.0.0",
+    "description": "React Flow based visualizer for Phasmatic state machines",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+      "build": "tsc",
+      "dev": "tsc --watch",
+      "test": "jest"
+    },
+    "dependencies": {
+      "phasmatic": "^1.0.0",
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0",
+      "reactflow": "^11.10.0"
+    },
+    "devDependencies": {
+      "@types/react": "^19.0.0",
+      "@types/react-dom": "^19.0.0",
+      "typescript": "^5.0.0"
+    },
+    "peerDependencies": {
+      "phasmatic": "^1.0.0",
+      "react": "^18.0.0 || ^19.0.0",
+      "react-dom": "^18.0.0 || ^19.0.0"
+    }
+  }

@@ -1,74 +1,15 @@
 {
-  "name": "phasmatic",
-  "author": "schmooky",
-  "version": "1.0.0",
-  "description": "A powerful TypeScript phase machine for gaming applications",
-  "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
+  "name": "phasmatic-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/schmooky/phasmatic.git"
-  },
-  "bugs": {
-    "url": "https://github.com/schmooky/phasmatic/issues"
-  },
-  "homepage": "https://github.com/schmooky/phasmatic#readme",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "scripts": {
-    "build": "tsc",
-    "test": "jest",
-    "coverage": "jest --coverage",
-    "lint": "eslint src",
-    "docs": "typedoc --out docs src",
-    "prepublishOnly": "npm run build",
-    "dev:slot": "node --loader ts-node/esm examples/slot-machine.ts",
-    "dev:card": "node --loader ts-node/esm examples/card-game.ts"
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "clean": "npm run clean --workspaces"
   },
-  "keywords": [
-    "state-machine",
-    "game-development",
-    "typescript",
-    "slots",
-    "tabletop-games",
-    "finite-state-machine",
-    "phase-machine"
-  ],
-  "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
-    "@types/jest": "^29.5.0",
-    "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "eslint": "^8.57.1",
-    "globals": "^16.0.0",
-    "jest": "^29.5.0",
-    "ts-jest": "^29.1.0",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.24.7",
-    "typescript": "^5.0.4",
-    "typescript-eslint": "^8.26.1"
-  },
-  "dependencies": {
-    "reflect-metadata": "^0.2.0"
-  },
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
+    "typescript": "^5.0.4"
   }
 }

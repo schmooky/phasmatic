@@ -1,0 +1,25 @@
+{
+    "name": "phasmatic-codegen",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "files": [
+      "dist"
+    ],
+    "scripts": {
+      "build": "rollup -c",
+      "test": "jest",
+      "clean": "rimraf dist"
+    },
+    "dependencies": {
+      "phasmatic": "^1.0.0"
+    },
+    "devDependencies": {
+      "rollup": "^3.20.0",
+      "rollup-plugin-typescript2": "^0.34.1",
+      "jest": "^29.5.0",
+      "ts-jest": "^29.1.0",
+      "rimraf": "^4.4.0"
+    }
+  }
