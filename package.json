@@ -4,11 +4,13 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "build": "npm run build --workspaces",
-    "test": "npm run test --workspaces",
-    "clean": "npm run clean --workspaces"
-  },
+"scripts": {
+  "build": "npm run clean && npm run build:core && npm run build:others",
+  "build:core": "npm run build -w phasmatic",
+  "build:others": "npm run build --workspaces --if-present",
+  "clean": "npm run clean --workspaces",
+  "test": "npm run test --workspaces --if-present"
+},
   "devDependencies": {
     "typescript": "^5.0.4"
   }

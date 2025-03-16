@@ -1,0 +1,14 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "module": "CommonJS"
+    },
+    "include": ["src/**/*"],
+    "references": [
+      { "path": "../phasmatic-core" },
+      { "path": "../phasmatic-visualizer" },
+      { "path": "../phasmatic-codegen" }
+    ]
+  }

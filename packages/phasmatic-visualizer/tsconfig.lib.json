@@ -1,0 +1,17 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./dist/lib",
+      "rootDir": "./src/lib",
+      "jsx": "react-jsx",
+      "lib": ["ES2020", "DOM", "DOM.Iterable"],
+      "module": "ESNext",
+      "moduleResolution": "bundler",
+      "declaration": true,
+      "declarationDir": "./dist/lib"
+    },
+    "include": ["src/lib"],
+    "references": [
+      { "path": "../phasmatic-core" }
+    ]
+  }
